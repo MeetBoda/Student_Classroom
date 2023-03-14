@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+</head>
+<body>
+    <div style="float: left;">
+        <div>{{assignment.assignment_title}} -- By {{assignment.user_id.name}}</div>
+        <div>{{assignment.deadline}}</div>
+        <div><embed src="assignment/{{assignment.assignment}}" type="application/pdf"></div>
+        <div>
+            <form action="storesubmission" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="assignment_id" value="{{assignment.assignment_id}}"><br>
+                Insert Submission <input type="file" name="submission"><br>
+                <input type="submit" value="Upload Assignment">
+            </form>
+        </div>
+    </div>
+    <div>
+        {% if submission.work != null %}
+            {% if submission.submission_date <= assignment.deadline %}
+                <div>Turned In</div>
+            {% else %}
+                <div>Done Late</div>
+            {% endif %}
+            <div>Your Work - <iframe src="{{submission.work}}" frameborder="0"></iframe></div>
+            {% if submission.marks_obtained != null %}
+                <div>Marks  {{submission.marks_obtained}}/{{assignment.max_marks}}</div>
+            {% else %}
+                <div>Marks  -/{{assignment.max_marks}}</div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

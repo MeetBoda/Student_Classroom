@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classroom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" />
+    <link href="/static/header.css" rel="stylesheet" />
+    <style>
+        body {
+            margin:0;
+            background:#FFFFFF;
+        }
+        #menuDemo { text-align:center; padding:10px 8px; }
+    </style>
+</head>
+<body>
+<div id="menuDemo">
+<!--start CssMenu-->
+<div id="cssmenu">
+    <!-- <div style="float: left;"><a href="home">Back to Home</a></div> -->
+    <ul>
+        <li style="float: left;"><a href="Home">Back Home</a></li>
+        <li><a href="stream">Stream</a></li>
+        <li><a href="Doubt">Doubt</a></li>
+        <li><a href="People">People</a></li>
+        {% if request.session.role == "Teacher" %}
+            <li><a href="Grade">Grade</a></li>
+        {% endif %}
+        <li style="float: right;"><a href="#">{{request.session.name}}</a></li>
+    </ul>
+</div>
+<!--end CssMenu-->
+</div>
+<hr>
+</body>
+</html>

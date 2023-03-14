@@ -1,0 +1,13 @@
+h3{
+    text-align: center;
+}
+
+.row{
+    text-align: center;
+    background-color: azure;
+    /* padding-bottom: 5px; */
+    font-size: 25px;
+}
+.row img{
+    border-radius: 25px;
+}

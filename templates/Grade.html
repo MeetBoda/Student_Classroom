@@ -1,0 +1,26 @@
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" />
+    <title>Classroom</title>
+</head>
+<body>
+    <h1 style="text-align: center;">All Assignments</h1>
+    <div>
+        {% if all_assignment != "empty" %}
+            {% for i in all_assignment %}
+                <div>
+                    <form action="viewsubmissions" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="assignment_id" value="{{i.assignment_id}}">
+                        <button type="submit">{{i.assignment_title}}</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

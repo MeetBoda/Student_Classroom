@@ -1,0 +1,21 @@
+.card{
+    width: 250px;
+    height: 250px;
+    border: solid black 2px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 30px;
+    background-image: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwY2xhc3Nyb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+    background-size: cover;
+    float: left;
+}
+.content{
+    text-align: center;
+    align-content: center;
+}
+nav{
+    font-size: 30px;
+}
+img{
+    margin-top: 5px;
+}

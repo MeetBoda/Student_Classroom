@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="storeassignment" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            Enter Title of Assignment<input type="text" name="assignment_title"><br>
+            Set Deadline <input type="date" name="deadline"> <br>
+            Enter Maximum Marks <input type="number" name="marks"> <br>
+            Insert Assignment <input type="file" name="assignment"><br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Work</th>
+                <th>Student Name</th>
+                <th>Maximum Marks</th>
+                <th>Marks Obtained</th>
+            </tr>
+            {% if all_submissions != "empty" %}
+                {% for i in all_submissions %}
+                    <tr>
+                        <td><embed src="{{i.work}}" type="application/pdf"></td>
+                        <td>{{i.user_id.name}}</td>
+                        <td>{{marks}}</td>
+                        <td><form action="addmarks" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="submission_id" value="{{i.submission_id}}">
+                            <input type="hidden" name="assign_id" value="{{i.assignment_id.assignment_id}}">
+                            <input type="number" name="marks" placeholder="Enter Marks">
+                            <input type="submit" value="Add">
+                        </form></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</body>
+</html>
